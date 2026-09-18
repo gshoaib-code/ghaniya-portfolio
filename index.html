@@ -1,15 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ghaniya Shoaib — UX/UI Designer</title>
-</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ghaniya Shoaib — UX/UI Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1E1E1E;
+    --charcoal: #4A4A4A;
+    --mid-grey: #B8B8B8;
+    --light-grey: #E9E9E9;
+    --paper: #FAFAF8;
+    --accent: #4CAF50;
+    --max-width: 640px;
+  }
 
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 5rem 1.5rem 4rem;
+  }
+
+  .eyebrow {
+    font-size: 0.9rem;
+    color: var(--charcoal);
+    margin: 0 0 0.75rem;
+  }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(2.2rem, 6vw, 3rem);
+    line-height: 1.15;
+    margin: 0 0 1rem;
+  }
+
+  .accent { color: var(--accent); }
+
+  .intro {
+    font-size: 1.05rem;
+    color: var(--charcoal);
+    max-width: 46ch;
+    margin: 0 0 2.5rem;
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .links a {
+    display: inline-block;
+    padding: 0.55rem 1.1rem;
+    border: 1px solid var(--ink);
+    border-radius: 3px;
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 0.92rem;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+
+  .links a:hover, .links a:focus-visible {
+    background: var(--ink);
+    color: var(--paper);
+    outline: none;
+  }
+
+  .links a.primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #FFFFFF;
+  }
+
+  .links a.primary:hover, .links a.primary:focus-visible {
+    background: #3d8b40;
+    border-color: #3d8b40;
+  }
+
+  section {
+    margin-bottom: 3rem;
+    border-top: 1px solid var(--light-grey);
+    padding-top: 2.5rem;
+  }
+
+  section h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 1.4rem;
+    margin: 0 0 1.25rem;
+  }
+
+  .project {
+    margin-bottom: 1.75rem;
+  }
+
+  .project:last-child { margin-bottom: 0; }
+
+  .project h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin: 0 0 0.35rem;
+  }
+
+  .project p {
+    color: var(--charcoal);
+    margin: 0;
+    font-size: 0.98rem;
+  }
+
+  .status {
+    display: inline-block;
+    font-size: 0.78rem;
+    color: var(--charcoal);
+    margin-left: 0.5rem;
+  }
+
+  .placeholder-note {
+    border: 1px dashed var(--mid-grey);
+    border-radius: 3px;
+    padding: 1.25rem 1.5rem;
+    color: var(--charcoal);
+    font-size: 0.92rem;
+  }
+
+  footer {
+    border-top: 1px solid var(--light-grey);
+    padding-top: 2rem;
+    color: var(--charcoal);
+    font-size: 0.85rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .badge-slot {
+    width: 44px;
+    height: 44px;
+    border: 1px dashed var(--mid-grey);
+    border-radius: 50%;
+  }
+
+  @media (max-width: 480px) {
+    main { padding: 3.5rem 1.25rem 3rem; }
+    .links a { flex: 1 1 auto; text-align: center; }
+  }
+</style>
+</head>
 <body>
-    <main>
-        <h1>Ghaniya Shoaib</h1>
-        <p>UX/UI Designer</p>
-    </main>
+<main>
+
+  <p class="eyebrow">Rawalpindi, Pakistan</p>
+  <h1>Ghaniya Shoaib designs financial and food-delivery products that stay <span class="accent">honest</span> under pressure.</h1>
+  <p class="intro">UX/UI design student building two portfolio case studies — a Gen Z finance tracker and a transparent-pricing food delivery app — through the FlyRank AI Fluency Program.</p>
+
+  <div class="links">
+    <a href="#" class="primary">Book a chat</a>
+    <a href="#">LinkedIn</a>
+    <a href="#">GitHub</a>
+    <a href="#">CV (PDF)</a>
+  </div>
+
+  <section>
+    <h2>What I'm building</h2>
+    <div class="project">
+      <h3>Bagged <span class="status">Personal finance tracker · in progress</span></h3>
+      <p>A finance app for Gen Z that tags spending by how it felt, not just what it cost — built on its own design system, from tokens through high-fidelity screens.</p>
+    </div>
+    <div class="project">
+      <h3>Bellwether <span class="status">Food delivery · in progress</span></h3>
+      <p>A food delivery concept focused on transparent pricing, accurate ETAs, and a checkout that doesn't hide the total until the last screen.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Notes &amp; capstone updates</h2>
+    <div class="placeholder-note">
+      Case study write-ups and capstone progress will be posted here as each phase wraps.
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Ghaniya Shoaib</span>
+    <div class="badge-slot" title="FlyRank completion badge — added on capstone approval"></div>
+  </footer>
+
+</main>
 </body>
 </html>
