@@ -106,6 +106,55 @@
     margin: 0 0 1.25rem;
   }
 
+  form label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--charcoal);
+    margin: 0 0 0.3rem;
+  }
+
+  form input, form textarea {
+    width: 100%;
+    padding: 0.65rem 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--mid-grey);
+    border-radius: 3px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 0.95rem;
+    color: var(--ink);
+    background: #FFFFFF;
+  }
+
+  form input:focus, form textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+
+  form textarea { resize: vertical; min-height: 100px; }
+
+  form button {
+    padding: 0.65rem 1.4rem;
+    background: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 3px;
+    color: #FFFFFF;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  form button:hover { background: #3d8b40; border-color: #3d8b40; }
+
+  #form-status {
+    margin-top: 0.9rem;
+    font-size: 0.9rem;
+    display: none;
+  }
+
+  #form-status.success { display: block; color: var(--accent); }
+  #form-status.error { display: block; color: #D32F2F; }
+
   .project {
     margin-bottom: 1.75rem;
   }
@@ -197,11 +246,56 @@
     </div>
   </section>
 
+  <section>
+    <h2>Get in touch</h2>
+    <form id="contact-form" action="https://formspree.io/f/mgavvgbz" method="POST">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" required></textarea>
+
+      <button type="submit">Send</button>
+      <p id="form-status"></p>
+    </form>
+  </section>
+
   <footer>
     <span>© 2026 Ghaniya Shoaib</span>
     <div class="badge-slot" title="FlyRank completion badge — added on capstone approval"></div>
   </footer>
 
 </main>
+
+<script>
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        status.textContent = "Thanks — that reached me, I'll get back to you soon.";
+        status.className = 'success';
+        form.reset();
+      } else {
+        status.textContent = "Something went wrong — please try again or email me directly.";
+        status.className = 'error';
+      }
+    } catch (err) {
+      status.textContent = "Something went wrong — please try again or email me directly.";
+      status.className = 'error';
+    }
+  });
+</script>
 </body>
 </html>
