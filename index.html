@@ -4,6 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ghaniya Shoaib — UX/UI Design</title>
+<meta name="description" content="UX/UI design student building Bagged and Bellwether — a Gen Z finance tracker and a transparent-pricing food delivery app — through the FlyRank AI Fluency Program.">
+<meta property="og:title" content="Ghaniya Shoaib — UX/UI Design">
+<meta property="og:description" content="UX/UI design student building Bagged and Bellwether — a Gen Z finance tracker and a transparent-pricing food delivery app.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ghaniya-portfolio.vercel.app/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ghaniya Shoaib — UX/UI Design">
+<meta name="twitter:description" content="UX/UI design student building Bagged and Bellwether — a Gen Z finance tracker and a transparent-pricing food delivery app.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎒</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -225,7 +234,7 @@
     <a href="https://calendly.com/shoaibghaniya/30min" class="primary">Book a chat</a>
     <a href="http://www.linkedin.com/in/ghaniyashoaib">LinkedIn</a>
     <a href="https://github.com/gshoaib-code">GitHub</a>
-    <a href="#">CV (PDF)</a>
+    <a href="CV_Ghaniya_Shoaib.pdf" target="_blank" rel="noopener">CV (PDF)</a>
   </div>
 
   <section>
@@ -275,8 +284,13 @@
   const form = document.getElementById('contact-form');
   const status = document.getElementById('form-status');
 
+  const submitBtn = form.querySelector('button[type="submit"]');
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    if (submitBtn.disabled) return; // guards against a fast double-click firing twice
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
     const data = new FormData(form);
     try {
       const res = await fetch(form.action, {
@@ -295,6 +309,9 @@
     } catch (err) {
       status.textContent = "Something went wrong — please try again or email me directly.";
       status.className = 'error';
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send';
     }
   });
 </script>
